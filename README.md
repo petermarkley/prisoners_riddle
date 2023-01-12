@@ -67,7 +67,7 @@ In this way, the designated counter normalizes the starting condition so that it
 
 When he turns the light off, it indirectly signals to all the other prisoners that they are free to flip the switch once each without fear of contanimating the context.
 
-While I was still pondering the riddle, I about the modification Evan made on the classical version. So I began by solving the classical version, then modified my solution to accommodate Evan's new version.
+While I was still pondering the riddle, I heard about the modification Evan made on the classical version. So I began by solving the classical version, then modified my solution to accommodate Evan's new version. That's why mine converges in the way that it does.
 
 ### Simulation
 
