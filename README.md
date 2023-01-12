@@ -9,41 +9,9 @@ Transcribed here:
 
 As Evan noted in a later video, the last detail given (that the light begins in an unknown state) is a departure from the classical version of the riddle.
 
-Before Evan posted his solution, I thought of one myself. As it turned out, Evan's solution differed from mine, and both solutions work. In fact, my solution works twice as fast.
+Before I heard Evan's solution, I thought of one myself (although regrettably didn't write or post it anywhere). As it turned out, Evan's solution differed from mine, and both solutions work. In fact, my solution works twice as fast.
 
 This software simulates the prison scenario and both solutions, to prove that they both work and that mine is faster.
-
-## My Solution
-
-Just like the "counter" in Evan's solution, one prisoner is designated as an "information-gatherer." He will have his own instructions, and all the others will follow another set of instructions.
-
-### Instructions for Designated Counter
-
-- If the light is off and it's his first visit to the room, he turns the light on, then never again. (If the light is already on for his first visit, he will never turn it on at all.)
-- Every time he comes in and finds the light on, he will turn it off. The first time he does this, he skips counting. Ever afterward, he keeps count.
-- When his count reaches 99, he knows all 100 prisoners have been in the room.
-
-### Instructions for General Prisoners
-
-- The prisoner waits and does nothing until he has entered and found the light on at least once.
-- After that point, the next time he finds the light off, he turns it on, then never touches it again.
-
-### Comments
-
-In this way, the designated counter normalizes the starting conditions. He knows for certain that the first time he turns the light off, none of the other prisoners turned it on: either because it started on, or because he's the one who turned it on. Otherwise this solution treats the riddle as if it were the classical version.
-
-This is because while pondering the riddle, I learned that in the classical version all prisoners know the light starts in the "off" position. I began by solving the classical version, then modified my solution to accommodate Evan's new riddle.
-
-### Simulation
-
-My solution is simulated in the file `prisoners-solution-1.c`:
-
-```
-make
-./prisoners-1
-```
-
-With this strategy, the prisoners are freed after an average of 10,000 days (or about 27 years).
 
 ## Evan's Solution
 
@@ -63,7 +31,7 @@ One prisoner is chosen as the "counter."
 
 ### Comments
 
-This solution also mimics the classical solution, but accommodates the unknown starting condition by the use of simple redundancy. If the light is on at the beginning, each of the 99 "general" prisoners will turn it off exactly twice except for one of them: he will turn it off exactly once, which is good enough.
+This solution mimics the classical solution, but accommodates the unknown starting condition by the use of simple redundancy. If the light is on at the beginning, each of the 99 "general" prisoners will turn it off exactly twice except for one of them: he will turn it off exactly once, which is good enough.
 
 Compared to my solution, this has simpler instructions but worse performance by a factor of two.
 
@@ -77,3 +45,37 @@ make
 ```
 
 With this strategy, the prisoners are freed after an average of 20,000 days (or about 55 years).
+
+## My Solution
+
+Just like the "counter" in Evan's solution, one prisoner is designated as an "information-gatherer." He will have his own instructions, and all the others will follow another set of instructions.
+
+### Instructions for Designated Counter
+
+- If the light is off and it's his first visit to the room, he turns the light on, then never again. (If the light is already on for his first visit, he will never turn it on at all.)
+- Every time he comes in and finds the light on, he will turn it off. The first time he does this, he skips counting. Ever afterward, he keeps count.
+- When his count reaches 99, he knows all 100 prisoners have been in the room.
+
+### Instructions for General Prisoners
+
+- The prisoner waits and does nothing until he has entered and found the light on at least once.
+- After that point, the next time he finds the light off, he turns it on, then never touches it again.
+
+### Comments
+
+In this way, the designated counter normalizes the starting condition so that it quickly converges with the classical version of the puzzle. He knows for certain that the first time he turns the light off, none of the other prisoners turned it on: either because it started on, or because he's the one who turned it on.
+
+When this happens, it indirectly signals to all the other prisoners that they are free to flip the switch once each without fear of contanimating the context.
+
+This is because while pondering the riddle, I learned that in the classical version all prisoners know the light starts in the "off" position. I began by solving the classical version, then modified my solution to accommodate Evan's new version.
+
+### Simulation
+
+My solution is simulated in the file `prisoners-solution-1.c`:
+
+```
+make
+./prisoners-1
+```
+
+With this strategy, the prisoners are freed after an average of 10,000 days (or about 27 years).
