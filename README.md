@@ -65,9 +65,9 @@ Just like the "counter" in Evan's solution, one prisoner is designated as an "in
 
 In this way, the designated counter normalizes the starting condition so that it quickly converges with the classical version of the puzzle. He knows for certain that the first time he turns the light off, none of the other prisoners turned it on: either because it started on, or because he's the one who turned it on.
 
-When this happens, it indirectly signals to all the other prisoners that they are free to flip the switch once each without fear of contanimating the context.
+When he turns the light off, it indirectly signals to all the other prisoners that they are free to flip the switch once each without fear of contanimating the context.
 
-This is because while pondering the riddle, I learned that in the classical version all prisoners know the light starts in the "off" position. I began by solving the classical version, then modified my solution to accommodate Evan's new version.
+While I was still pondering the riddle, I about the modification Evan made on the classical version. So I began by solving the classical version, then modified my solution to accommodate Evan's new version.
 
 ### Simulation
 
