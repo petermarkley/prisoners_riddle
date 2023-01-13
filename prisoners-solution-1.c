@@ -118,7 +118,7 @@ void interrogate(int cell) {
 void init() {
 	int i = 0;
 	srandom(time(0));
-	if (random()%2) {
+	if (1) {//(random()%2) {
 		lightswitch = BOOL_TRUE;
 	} else {
 		lightswitch = BOOL_FALSE;
@@ -138,9 +138,15 @@ void init() {
 }
 
 int main (int argc, char **argv) {
+	int r;
 	init();
 	while (finish == BOOL_FALSE) {
-		interrogate(random() % PRISONER_NUM);
+		if (prison[0].visits < 2) {
+			r = 0;
+		} else {
+			r = random() % PRISONER_NUM;
+		}
+		interrogate(r);
 		day++;
 	}
 	fprintf(stdout,"light started %s; prisoner 0 has been called %d times\n",(start == BOOL_TRUE ? "ON" : "OFF"),prison[0].visits);
