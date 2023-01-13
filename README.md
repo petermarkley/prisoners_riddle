@@ -11,6 +11,11 @@ As Evan noted in a later video, the last detail given (that the light begins in 
 
 Before I heard Evan's solution, I thought of one myself (although regrettably didn't write or post it anywhere). As it turned out, Evan's solution differed from mine, and both solutions work. In fact, my solution works twice as fast.
 
+----
+**EDIT 1/13/22:** Evan found a flaw in my solution. Technically it does NOT work with 100% certainty in all scenarios, and therefore is NOT a valid solution. For more info, see issue https://github.com/petermarkley/prisoners_riddle/issues/1
+
+----
+
 This software simulates the prison scenario and both solutions, to prove that they both work and that mine is faster.
 
 ## Evan's Solution
